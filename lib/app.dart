@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'pages/controller.dart';
 import 'pages/formsList.page.dart';
 
-class EligibilityFormsList extends StatelessWidget {
-  const EligibilityFormsList({Key? key}) : super(key: key);
+class EligibilityFormsListPage extends StatelessWidget {
+  final EligibilityFormsListController controller;
+  const EligibilityFormsListPage(this.controller, {Key? key}) : super(key: key);
   final title = 'Eligibility Forms List';
 
   @override

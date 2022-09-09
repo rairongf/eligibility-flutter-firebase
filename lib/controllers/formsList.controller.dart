@@ -8,7 +8,7 @@ class EligibilityFormsListController {
 
   EligibilityFormsListController(this.repository);
 
-  void initialize() async {
+  Future<void> initialize() async {
     final formsJsonList = await repository.getFormsJsonList();
     await repository.storeDocsOnCollection(formsJsonList, 'forms');
     formsList = await repository.queryDocsFromCollection('forms');

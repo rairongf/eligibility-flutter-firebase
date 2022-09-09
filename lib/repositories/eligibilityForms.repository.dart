@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:eligibility_flutter_firebase/entities/eligibilityForm.entity.dart';
@@ -14,9 +16,10 @@ class EligibilityFormsRepository {
   Future<JSONList> getFormsJsonList() async {
     try {
       final response =
-          await httpClient.get<JSONList>('https://pastebin.com/raw/zPUtKAdx');
+          await httpClient.get<String>('https://pastebin.com/raw/zPUtKAdx');
       if (response.data == null) throw Exception('Could not retrive data');
-      return response.data!;
+      final data = JSONList.from(jsonDecode(response.data!));
+      return data;
     } on DioError catch (e) {
       return throw Exception(e.message);
     }
@@ -36,8 +39,8 @@ class EligibilityFormsRepository {
       for (var item in data) {
         await storageClient.collection(collectionPath).add(item);
       }
-    } catch (e) {
-      throw Exception('Could not store forms');
+    } on Error catch (e) {
+      throw Exception('Could not store forms: ${e.toString()}');
     }
   }
 
@@ -48,8 +51,8 @@ class EligibilityFormsRepository {
           .map((formDocument) => EligibilityForm.fromJson(formDocument.data()))
           .toList();
       return formsList;
-    } catch (e) {
-      return throw Exception('Could not query forms');
+    } on Error catch (e) {
+      return throw Exception('Could not query forms: ${e.toString()}');
     }
   }
 }

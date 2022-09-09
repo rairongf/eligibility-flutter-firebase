@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'pages/controller.dart';
+import 'controllers/formsList.controller.dart';
 import 'pages/formsList.page.dart';
 
-class EligibilityFormsListPage extends StatelessWidget {
+class EligibilityFormsListApp extends StatelessWidget {
   final EligibilityFormsListController controller;
-  const EligibilityFormsListPage(this.controller, {Key? key}) : super(key: key);
+  const EligibilityFormsListApp(this.controller, {Key? key}) : super(key: key);
   final title = 'Eligibility Forms List';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FormsListPage(title: title),
+      home: FormsListPage(controller, title: title),
     );
   }
 }

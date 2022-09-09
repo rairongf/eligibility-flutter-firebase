@@ -16,5 +16,5 @@ void main() async {
   final storageClient = FirebaseFirestore.instance;
   final repository = EligibilityFormsRepository(httpClient, storageClient);
   final pageController = EligibilityFormsListController(repository);
-  runApp(EligibilityFormsListPage(pageController));
+  runApp(EligibilityFormsListApp(pageController));
 }

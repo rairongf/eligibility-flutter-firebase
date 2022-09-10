@@ -4,7 +4,7 @@ import '../repositories/eligibilityForms.repository.dart';
 
 class EligibilityFormsListController {
   final EligibilityFormsRepository repository;
-  late final List<EligibilityForm> formsList;
+  List<EligibilityForm> formsList = [];
 
   EligibilityFormsListController(this.repository);
 

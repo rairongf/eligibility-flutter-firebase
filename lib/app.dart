@@ -15,7 +15,7 @@ class EligibilityFormsListApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FormsListPage(controller, title: title),
+      home: FormsListPage(controller),
     );
   }
 }

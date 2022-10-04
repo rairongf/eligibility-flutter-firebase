@@ -10,7 +10,7 @@ Projeto desenvolvido como entrega de um desafio técnico para a vaga de Desenvol
 </p>
 
 <p align="center">
- <a href="#qual-o-desafio?">Desafio</a> •
+ <a href="#qual-o-desafio">Desafio</a> •
  <a href="#documentação">Documentação</a> • 
  <a href="#pré-requisitos">Pré-requisitos</a> •
  <a href="#executando-o-app">Executando o app</a> •
